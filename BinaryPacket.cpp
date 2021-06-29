@@ -1,4 +1,5 @@
 #include "Handler.h"
+#include "Utils.h"
 #include <openssl/aes.h>
 #include <openssl/rand.h>
 
@@ -15,7 +16,7 @@ void BinaryPacket::encrypt ( unsigned char * key ) {
 
     AES_KEY enc_key;
     AES_set_encrypt_key ( key, 32, &enc_key );
-    AES_cbc_encrypt ( ( unsigned char * ) this->buffer.data(), ( unsigned char * ) this->buffer.data ( ), this->buffer.size(), &enc_key, iv_enc, AES_ENCRYPT );
+    AES_cbc_encrypt ( ( unsigned char * ) this->buffer.data(), ( unsigned char * ) this->buffer.data ( ), this->buffer.size(), &enc_key, Utils::OTPKey ( 30 ).data ( ), AES_ENCRYPT );
 
     this->encrypted = true;
 }
@@ -24,7 +25,7 @@ void BinaryPacket::decrypt ( unsigned char * key ) {
 
     AES_KEY enc_key;
     AES_set_decrypt_key ( key, 32, &enc_key );
-    AES_cbc_encrypt ( ( unsigned char * ) this->buffer.data ( ), ( unsigned char * ) this->buffer.data ( ), this->buffer.size ( ), &enc_key, iv_enc, AES_DECRYPT );
+    AES_cbc_encrypt ( ( unsigned char * ) this->buffer.data ( ), ( unsigned char * ) this->buffer.data ( ), this->buffer.size ( ), &enc_key, Utils::OTPKey(30).data(), AES_DECRYPT );
 
     this->encrypted = false;
 }

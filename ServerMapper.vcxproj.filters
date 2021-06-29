@@ -11,6 +11,9 @@
     <Filter Include="Socket">
       <UniqueIdentifier>{f70400da-5de9-4456-9c79-c04cfa645fd0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Utilities">
+      <UniqueIdentifier>{3941d73a-57a2-4ddd-bb2f-5695ff1039ae}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ServerMapper.cpp">
@@ -27,6 +30,9 @@
     </ClCompile>
     <ClCompile Include="BinaryPacket.cpp">
       <Filter>Socket</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils.cpp">
+      <Filter>Utilities</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -45,6 +51,9 @@
     </ClInclude>
     <ClInclude Include="PacketType.h">
       <Filter>Socket</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils.h">
+      <Filter>Utilities</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

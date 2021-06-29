@@ -146,6 +146,7 @@
     <ClCompile Include="OnBinary.cpp" />
     <ClCompile Include="BinaryPacket.cpp" />
     <ClCompile Include="ServerMapper.cpp" />
+    <ClCompile Include="Utils.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="libcrypto.lib" />
@@ -156,6 +157,7 @@
     <ClInclude Include="Client.h" />
     <ClInclude Include="Handler.h" />
     <ClInclude Include="PacketType.h" />
+    <ClInclude Include="Utils.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
