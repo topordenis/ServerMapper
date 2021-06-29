@@ -13,10 +13,40 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Mapper">
+      <UniqueIdentifier>{3067b603-c6f4-4b14-a425-06256741962e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Socket">
+      <UniqueIdentifier>{f70400da-5de9-4456-9c79-c04cfa645fd0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ServerMapper.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Handler.cpp">
+      <Filter>Socket</Filter>
+    </ClCompile>
+    <ClCompile Include="OnBinary.cpp">
+      <Filter>Socket</Filter>
+    </ClCompile>
+    <ClCompile Include="MessageHandler.cpp">
+      <Filter>Socket</Filter>
+    </ClCompile>
+    <ClCompile Include="PacketResponse.cpp">
+      <Filter>Socket</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="libcrypto.lib" />
+    <Library Include="libssl.lib" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Handler.h">
+      <Filter>Socket</Filter>
+    </ClInclude>
+    <ClInclude Include="Client.h">
+      <Filter>Socket</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

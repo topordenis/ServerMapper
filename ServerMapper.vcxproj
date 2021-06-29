@@ -23,7 +23,7 @@
     <Keyword>Win32Proj</Keyword>
     <ProjectGuid>{7fa2420d-3f95-4649-9efe-9c1d85d2866c}</ProjectGuid>
     <RootNamespace>ServerMapper</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -75,6 +75,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
+    <IncludePath>F:\includes\dx9\Include;F:\includes\nlohmann;F:\includes\jsoncpp\include;F:\includes\websocketpp-master;F:\includes\boost_1_73_0;F:\includes\msgpack-c-cpp_master\include;F:\includes\openssl\DLL\x32\Release\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);F:\includes\boost_1_73_0\stage\lib;F:\includes\openssl\DLL\x32\Release\lib;F:\includes\dx9\Lib\x86</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
@@ -139,7 +141,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Handler.cpp" />
+    <ClCompile Include="MessageHandler.cpp" />
+    <ClCompile Include="OnBinary.cpp" />
+    <ClCompile Include="PacketResponse.cpp" />
     <ClCompile Include="ServerMapper.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="libcrypto.lib" />
+    <Library Include="libssl.lib" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Client.h" />
+    <ClInclude Include="Handler.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

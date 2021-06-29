@@ -2,9 +2,15 @@
 //
 
 #include <iostream>
+#include "Handler.h"
 
 int main()
 {
+    std::cout << "Starting socket handler.\n";
+    socket_handler handler;
+
+    handler.listen ( );
+
     std::cout << "Hello World!\n";
 }
 
