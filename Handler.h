@@ -10,7 +10,7 @@ using websocketpp::lib::placeholders::_2;
 using websocketpp::lib::bind;
 typedef server::connection_ptr connection_ptr;
 
-
+#include "BinaryPacket.h"
 #include "Client.h"
 
 

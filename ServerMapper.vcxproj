@@ -144,7 +144,7 @@
     <ClCompile Include="Handler.cpp" />
     <ClCompile Include="MessageHandler.cpp" />
     <ClCompile Include="OnBinary.cpp" />
-    <ClCompile Include="PacketResponse.cpp" />
+    <ClCompile Include="BinaryPacket.cpp" />
     <ClCompile Include="ServerMapper.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -152,8 +152,10 @@
     <Library Include="libssl.lib" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BinaryPacket.h" />
     <ClInclude Include="Client.h" />
     <ClInclude Include="Handler.h" />
+    <ClInclude Include="PacketType.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
