@@ -32,8 +32,15 @@ void BinaryPacket::decrypt ( unsigned char * key ) {
 
 // Send our binary data packed. NOTE: PS for AES, Only buffer data from this object gets encrypted
 void BinaryPacket::send ( ) {
+    websocketpp::lib::error_code ec;
+
 
     auto con = handler->get_connection ( handle );
+    if ( ec ) {
+        std::cout << "> Failed sending binary packet: " << ec.message ( ) << std::endl;
+        return;
+    }
+
 
     
     msgpack::sbuffer sbuf;
@@ -43,4 +50,13 @@ void BinaryPacket::send ( ) {
 
 }
 
+
+
+msgpack::object BinaryPacket::get ( ) {
+    msgpack::unpacked msg;
+    msgpack::unpack ( msg, buffer.data ( ), buffer.size ( ) );
+
+    return msg.get ( );
+
+}
 

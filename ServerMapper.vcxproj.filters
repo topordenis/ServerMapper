@@ -33,9 +33,9 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Library Include="libcrypto.lib" />
-    <Library Include="libssl.lib" />
     <Library Include="zlibstat.lib" />
+    <Library Include="libssl.lib" />
+    <Library Include="libcrypto.lib" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Handler.h">

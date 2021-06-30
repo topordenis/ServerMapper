@@ -38,9 +38,9 @@ socket_handler::socket_handler ( ) {
         // Initialize ASIO
         server.init_asio ( );
 
+        server.set_open_handler ( bind ( &socket_handler::on_open, this, ::_1 ) );
+        server.set_message_handler ( bind ( &socket_handler::message_handle, this, ::_1, ::_2 ) );
       
-       
-       // server.set_message_handler ( bind ( &on_message, &server, _1, _2 ) );
         std::cout << "Socket handler initialized!\n";
   
     }
