@@ -8,7 +8,8 @@ using websocketpp::connection_hdl;
 using websocketpp::lib::placeholders::_1;
 using websocketpp::lib::placeholders::_2;
 using websocketpp::lib::bind;
-typedef server::connection_ptr connection_ptr;
+
+
 
 #include "BinaryPacket.h"
 #include "Client.h"
@@ -62,6 +63,8 @@ typedef server::message_ptr message_ptr;
 
 class socket_handler {
 public:
+
+    server::connection_ptr get_connection ( connection_hdl hdl );
     void listen ( );
     socket_handler ( );
 	~socket_handler ( );
@@ -72,3 +75,8 @@ private:
     std::vector<client*> m_clients;
 	bool enable_logging = false;
 };
+
+
+extern std::unique_ptr< socket_handler > handler;
+
+

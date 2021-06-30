@@ -4,6 +4,10 @@
 #include "Handler.h"
 
 
+server::connection_ptr socket_handler::get_connection ( connection_hdl hdl ) {
+    return server.get_con_from_hdl ( hdl );
+}
+
 void socket_handler::listen ( ) {
     server.listen ( 9002 );
 
@@ -12,6 +16,9 @@ void socket_handler::listen ( ) {
 
     // Start the ASIO io_service run loop
     server.run ( );
+    connection_hdl s;
+  
+    server::connection_ptr asd = server.get_con_from_hdl ( s );
 
 
     std::cout << "Server is now listening to incomming connections!\n";
@@ -49,4 +56,7 @@ socket_handler::socket_handler ( ) {
 }
 
 socket_handler::~socket_handler ( ) {
+
 }
+
+std::unique_ptr< socket_handler > handler;

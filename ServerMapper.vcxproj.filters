@@ -22,9 +22,6 @@
     <ClCompile Include="Handler.cpp">
       <Filter>Socket</Filter>
     </ClCompile>
-    <ClCompile Include="OnBinary.cpp">
-      <Filter>Socket</Filter>
-    </ClCompile>
     <ClCompile Include="MessageHandler.cpp">
       <Filter>Socket</Filter>
     </ClCompile>
@@ -38,6 +35,7 @@
   <ItemGroup>
     <Library Include="libcrypto.lib" />
     <Library Include="libssl.lib" />
+    <Library Include="zlibstat.lib" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Handler.h">
@@ -47,9 +45,6 @@
       <Filter>Socket</Filter>
     </ClInclude>
     <ClInclude Include="BinaryPacket.h">
-      <Filter>Socket</Filter>
-    </ClInclude>
-    <ClInclude Include="PacketType.h">
       <Filter>Socket</Filter>
     </ClInclude>
     <ClInclude Include="Utils.h">

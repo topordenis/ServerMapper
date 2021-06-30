@@ -1,7 +1,11 @@
 #pragma once
 #include <vector>
-#include "PacketType.h"
+#include <msgpack.hpp>
 
+enum PacketType {
+	PACKET_KEY,
+	PACKET_LOGIN
+};
 
 class BinaryPacket {
 public:
@@ -10,7 +14,7 @@ public:
 
 private:
 
-	PacketType type;
+	int type;
 	std::vector<unsigned char> buffer;
 
 	bool encrypted = false;
@@ -19,7 +23,12 @@ private:
 	websocketpp::connection_hdl handle;
 public:
 	void decrypt ( unsigned char * key );
+	void send ( );
 	void encrypt ( unsigned char* key );
 
+
+public:
+
+	MSGPACK_DEFINE ( type, buffer, encrypted );
 };
 

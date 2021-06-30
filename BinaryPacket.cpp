@@ -30,3 +30,17 @@ void BinaryPacket::decrypt ( unsigned char * key ) {
     this->encrypted = false;
 }
 
+// Send our binary data packed. NOTE: PS for AES, Only buffer data from this object gets encrypted
+void BinaryPacket::send ( ) {
+
+    auto con = handler->get_connection ( handle );
+
+    
+    msgpack::sbuffer sbuf;
+    msgpack::pack ( sbuf, *this );
+
+    con->send ( sbuf.data ( ), sbuf.size ( ) );
+
+}
+
+

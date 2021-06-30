@@ -4,7 +4,7 @@
 
 void socket_handler::on_open ( connection_hdl hdl ) {
 
-    connection_ptr con = server.get_con_from_hdl ( hdl );
+    server::connection_ptr con = server.get_con_from_hdl ( hdl );
 
     m_clients.push_back ( new client ( hdl ) );
 
@@ -17,13 +17,18 @@ void socket_handler::message_handle ( websocketpp::connection_hdl hdl, message_p
               << std::endl;
     */
     try {
-        switch ( msg->get_opcode() == opcode ) {
-        default:
-            break;
+        if ( msg->get_opcode ( ) == websocketpp::frame::opcode::binary ) {
+
+            try {
+
+            }
+            catch ( int err ) {
+
+            }
+
         }
-        hdl->s
        
-        server.send ( hdl, msg->get_payload ( ), msg->get_opcode ( ) );
+        //server.send ( hdl, msg->get_payload ( ), msg->get_opcode ( ) );
     }
     catch ( websocketpp::exception const & e ) {
         std::cout << "Echo failed because: "
