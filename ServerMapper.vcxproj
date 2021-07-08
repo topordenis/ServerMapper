@@ -37,7 +37,7 @@
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
-    <CharacterSet>Unicode</CharacterSet>
+    <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -105,6 +105,10 @@
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <EnableParallelCodeGeneration>true</EnableParallelCodeGeneration>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -143,21 +147,24 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Handler.cpp" />
+    <ClCompile Include="MapperHandle.cpp" />
     <ClCompile Include="MessageHandler.cpp" />
     <ClCompile Include="BinaryPacket.cpp" />
     <ClCompile Include="ServerMapper.cpp" />
     <ClCompile Include="Utils.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Library Include="libcrypto.lib" />
-    <Library Include="libssl.lib" />
-    <Library Include="zlibstat.lib" />
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="BinaryPacket.h" />
     <ClInclude Include="Client.h" />
     <ClInclude Include="Handler.h" />
+    <ClInclude Include="MapperHandle.h" />
+    <ClInclude Include="PortableExecutable.h" />
     <ClInclude Include="Utils.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="libcrypto.lib" />
+    <Library Include="libssl.lib" />
+    <Library Include="zlibstat.lib" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -4,6 +4,17 @@
 #include "Handler.h"
 
 
+client * socket_handler::get_client_by_connection ( connection_hdl hdl ) {
+
+
+    for ( auto & c : m_clients ) {
+        if ( c->remote_endpoint == server.get_con_from_hdl ( hdl )->get_remote_endpoint ( ) ) {
+            return c;
+        }
+    }
+    return nullptr;
+}
+
 server::connection_ptr socket_handler::get_connection ( connection_hdl hdl ) {
     return server.get_con_from_hdl ( hdl );
 }
@@ -43,6 +54,10 @@ socket_handler::socket_handler ( ) {
       
         std::cout << "Socket handler initialized!\n";
   
+    
+
+   
+
     }
     catch ( websocketpp::exception const & e ) {
         std::cout << e.what ( ) << std::endl;

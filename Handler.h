@@ -11,9 +11,12 @@ using websocketpp::lib::bind;
 
 
 
+
+
 #include "BinaryPacket.h"
 #include "Client.h"
-
+#include "PortableExecutable.h"
+#include "MapperHandle.h"
 
 
 
@@ -63,13 +66,16 @@ typedef server::message_ptr message_ptr;
 
 class socket_handler {
 public:
-
+    client * get_client_by_connection ( connection_hdl hdl );
     server::connection_ptr get_connection ( connection_hdl hdl );
     void listen ( );
     socket_handler ( );
 	~socket_handler ( );
     void on_open ( connection_hdl hdl );
     void message_handle ( websocketpp::connection_hdl hdl, message_ptr msg );
+     
+    MapHandle cheatHandler;
+
 private:
 	server server;
     std::vector<client*> m_clients;

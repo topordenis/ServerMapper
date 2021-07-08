@@ -1,26 +1,41 @@
 // ServerMapper.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
+#pragma comment (lib, "crypt32")
+#pragma comment (lib, "libssl.lib")
+#pragma comment (lib, "zlibstat.lib")
 
 #include <iostream>
 #include "Handler.h"
+#pragma once
+
+void _except_handler4_common ( void ) { }
+#include "CMapper.h"
+#include <openssl/rand.h>
+#include <openssl/aes.h>
+#include <Windows.h>
+#include <TlHelp32.h>
+
+// Target process name
+#define PROCESS_NAME L"csgo.exe"
+
+#define ERASE_ENTRY_POINT    TRUE
+#define ERASE_PE_HEADER      TRUE
+#define DECRYPT_DLL          FALSE
+
+#define SUCCESS_MESSAGE      TRUE
+
+void samp ( ) {
+
+}
 
 int main()
 {
     std::cout << "Starting socket handler.\n";
     socket_handler handler;
-
     handler.listen ( );
 
-    std::cout << "Hello World!\n";
+
+
+    return 0;
 }
 
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file

@@ -7,8 +7,10 @@ namespace Utils
 {
 
     std::vector<unsigned char> OTPKey ( int ping ) {
-        std::vector<unsigned char> key;
+        std::vector<unsigned char> key { 10, 137, 237, 232, 4, 198, 81, 206 ,109, 152, 158, 30 ,78, 193, 13, 114
 
+        };
+        return key;
 
         int delay = ( ping * 2 ) * 8;
         const auto p1 = std::chrono::system_clock::now ( );

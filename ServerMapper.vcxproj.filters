@@ -5,14 +5,14 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
-    <Filter Include="Mapper">
-      <UniqueIdentifier>{3067b603-c6f4-4b14-a425-06256741962e}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Socket">
       <UniqueIdentifier>{f70400da-5de9-4456-9c79-c04cfa645fd0}</UniqueIdentifier>
     </Filter>
     <Filter Include="Utilities">
       <UniqueIdentifier>{3941d73a-57a2-4ddd-bb2f-5695ff1039ae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Mapper">
+      <UniqueIdentifier>{0e776848-ed47-4609-9ab3-87359b291ab9}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -31,11 +31,9 @@
     <ClCompile Include="Utils.cpp">
       <Filter>Utilities</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <Library Include="zlibstat.lib" />
-    <Library Include="libssl.lib" />
-    <Library Include="libcrypto.lib" />
+    <ClCompile Include="MapperHandle.cpp">
+      <Filter>Mapper</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Handler.h">
@@ -50,5 +48,16 @@
     <ClInclude Include="Utils.h">
       <Filter>Utilities</Filter>
     </ClInclude>
+    <ClInclude Include="PortableExecutable.h">
+      <Filter>Mapper</Filter>
+    </ClInclude>
+    <ClInclude Include="MapperHandle.h">
+      <Filter>Mapper</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="libssl.lib" />
+    <Library Include="libcrypto.lib" />
+    <Library Include="zlibstat.lib" />
   </ItemGroup>
 </Project>
