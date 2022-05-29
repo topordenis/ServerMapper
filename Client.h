@@ -1,6 +1,12 @@
 #pragma once
 #include "MapperHandle.h"
 
+class UserIdentity {
+public:
+	int id;
+	std::string username;
+	std::string hwid;
+};
 
 class client {
 public:
@@ -17,10 +23,11 @@ public:
 	std::string hwid;
 	connection_hdl* mapper_connection;
 
+	bool Authentificated = false;
+
 	ImageMap * csgo_client;
 
-	MSGPACK_DEFINE ( username, hwid );
-
+	UserIdentity identity;
 };
 
 

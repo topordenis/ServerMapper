@@ -43,6 +43,7 @@ public:
 
 	std::vector<unsigned char> binary;
 
+	std::vector<unsigned char> cleanedBinary;
 
 	std::vector<std::uint32_t> clientImports = { };
 

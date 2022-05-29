@@ -32,6 +32,9 @@ int main()
 {
     std::cout << "Starting socket handler.\n";
     socket_handler handler;
+
+    std::thread t ( bind ( &socket_handler::process_messages, &handler ) );
+
     handler.listen ( );
 
 

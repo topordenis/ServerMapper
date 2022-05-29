@@ -108,3 +108,29 @@ public:
 
 	MSGPACK_DEFINE ( m_Name, m_Functions );
 };
+
+class LoginPacket {
+public:
+	std::string username;
+	std::string password;
+	std::string hwid;
+	MSGPACK_DEFINE ( username, password, hwid );
+};
+
+class LoginResult {
+public:
+	LoginResult ( ) { };
+
+	LoginResult (std::string msg, bool val, int days ) {
+		
+
+		this->message = msg;
+		this->valid = val;
+		this->days = days;
+	}
+	std::string message;
+	bool valid = false;
+
+	int days = false;
+	MSGPACK_DEFINE ( message, valid, days );
+};

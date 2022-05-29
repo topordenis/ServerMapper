@@ -146,6 +146,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="MessageProcessor.cpp" />
     <ClCompile Include="Handler.cpp" />
     <ClCompile Include="MapperHandle.cpp" />
     <ClCompile Include="MessageHandler.cpp" />

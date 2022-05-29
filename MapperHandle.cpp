@@ -93,6 +93,15 @@ bool ImageMap::FixImports ( ) {
 		impDesc++;
 	}
 
+	/*copy cleaned image without pe header*/
+
+	cleanedBinary = binary;
+
+	for ( size_t i = 0; i < 128; i++ ) {
+		cleanedBinary.at ( i ) = 0x0;
+	}
+	
+
 	return true;
 }
 

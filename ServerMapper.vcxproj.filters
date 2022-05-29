@@ -34,6 +34,9 @@
     <ClCompile Include="MapperHandle.cpp">
       <Filter>Mapper</Filter>
     </ClCompile>
+    <ClCompile Include="MessageProcessor.cpp">
+      <Filter>Socket</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Handler.h">

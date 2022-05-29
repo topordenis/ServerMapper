@@ -4,6 +4,8 @@
 
 #include <websocketpp/extensions/permessage_deflate/enabled.hpp>
 
+
+
 using websocketpp::connection_hdl;
 using websocketpp::lib::placeholders::_1;
 using websocketpp::lib::placeholders::_2;
@@ -14,9 +16,11 @@ using websocketpp::lib::bind;
 
 
 #include "BinaryPacket.h"
+
 #include "Client.h"
 #include "PortableExecutable.h"
 #include "MapperHandle.h"
+#include <condition_variable>
 
 
 
@@ -62,6 +66,21 @@ typedef websocketpp::server<deflate_config> server;
 
 typedef server::message_ptr message_ptr;
 
+enum action_type {
+    SUBSCRIBE,
+    UNSUBSCRIBE,
+    MESSAGE
+};
+
+struct action {
+    action ( action_type t, connection_hdl h ) : type ( t ), hdl ( h ) { }
+    action ( action_type t, connection_hdl h, server::message_ptr m )
+        : type ( t ), hdl ( h ), msg ( m ) { }
+
+    action_type type;
+    websocketpp::connection_hdl hdl;
+    server::message_ptr msg;
+};
 
 
 class socket_handler {
@@ -76,10 +95,18 @@ public:
      
     MapHandle cheatHandler;
 
+    std::queue<action> m_actions;
+
+    std::mutex m_action_lock;
+    std::mutex m_connection_lock;
+    std::condition_variable m_action_cond;
+
+    void process_messages ( );
 private:
 	server server;
     std::vector<client*> m_clients;
 	bool enable_logging = false;
+  
 };
 
 
